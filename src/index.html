@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/public/style.css" rel="stylesheet" />
+    <title>Selection Sort - Algorithm</title>
+  </head>
+
+  <body>
+    <header class="text-white py-6 mt-8 rounded-3xl bg-indigo-600">
+      <p class="text-white flex justify-center items-center font-bold text-3xl">
+        Selection Sort Visualization
+      </p>
+    </header>
+
+    <section class="bg-white shadow-sm rounded-lg mt-6">
+      <div id="data-container"></div>
+    </section>
+
+    <section
+      class="text-center py-2 text-lg text-gray-900 font-semibold"
+      id="selected"
+    ></section>
+
+    <div class="py-6 flex justify-center flex-row gap-10">
+      <button
+        id="btn-generate"
+        class="text-2xl font-semibold text-white h-14 w-64 rounded-xl hover:bg-emerald-700 bg-emerald-600"
+        onclick="generate()"
+        id="Button1"
+      >
+        Generate New Data
+      </button>
+
+      <button
+        id="btn-sort"
+        class="text-2xl font-semibold text-white h-14 w-64 rounded-xl hover:bg-indigo-700 bg-indigo-600"
+        onclick="SelectionSort(),disable()"
+        id="Button2"
+      >
+        Sorting Data
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

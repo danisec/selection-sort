@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-orange-100/80 w-8/12 max-h-screen mx-auto;
+    }
+
+    #data-container {
+       @apply w-[600px] h-[364px] relative m-auto;
+    }
+    
+    .bar {
+        @apply w-7 absolute left-0 bottom-0 bg-emerald-500 rounded-t-md transition-all duration-200 ease-in-out;
+    }
+
+    .bar_label {
+        @apply absolute -top-6 w-full text-center;
+    }
+}
