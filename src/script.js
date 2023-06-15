@@ -36,8 +36,8 @@ function generatebars(num = 20) {
   }
 }
 
-// asynchronous function to perform "Selection Sort"
-async function SelectionSort(delay = 300) {
+// asynchronous function to perform "Selection Sort Smallest"
+async function SelectionSortSmallest(delay = 300) {
   let bars = document.querySelectorAll('.bar')
   // Assign 0 to min_idx
   var min_idx = 0
@@ -116,6 +116,79 @@ async function SelectionSort(delay = 300) {
   document.getElementById('btn-sort').style.cursor = 'pointer'
 }
 
+// asynchronous function to perform "Selection Sort Biggest"
+async function SelectionSortBiggest(delay = 300) {
+  let bars = document.querySelectorAll('.bar')
+
+  for (let i = bars.length - 1; i >= 0; i--) {
+    let max_idx = i
+
+    // Provide indigo color to the ith bar
+    bars[i].style.backgroundColor = 'rgb(79, 70, 229)'
+
+    for (let j = i - 1; j >= 0; j--) {
+      // Provide fuchsia color to the jth bar
+      bars[j].style.backgroundColor = 'rgb(192, 38, 211)'
+
+      // To pause the execution of code for the specified delay
+      await new Promise((resolve) => setTimeout(resolve, delay))
+
+      // To store the integer value of jth bar
+      let val1 = parseInt(bars[j].childNodes[0].innerHTML)
+
+      // To store the integer value of max_idx-th bar
+      let val2 = parseInt(bars[max_idx].childNodes[0].innerHTML)
+
+      // For selecting section having id "selected"
+      let barval = document.getElementById('selected')
+
+      // For dynamically Updating the selected element
+      barval.innerHTML = `<h3>Comparing ${val1} and ${val2}</h3>`
+
+      // Compare val1 & val2
+      if (val1 > val2) {
+        // Provide skyblue color to the max_idx-th bar if not the same as i
+        if (max_idx !== i) {
+          bars[max_idx].style.backgroundColor = 'rgb(125, 211, 252)'
+        }
+        max_idx = j
+      } else {
+        // Provide skyblue color to the jth bar
+        bars[j].style.backgroundColor = 'rgb(125, 211, 252)'
+      }
+    }
+
+    // To swap ith and max_idx-th bar
+    let temp1 = bars[max_idx].style.height
+    let temp2 = bars[max_idx].childNodes[0].innerText
+    bars[max_idx].style.height = bars[i].style.height
+    bars[i].style.height = temp1
+    bars[max_idx].childNodes[0].innerText = bars[i].childNodes[0].innerText
+    bars[i].childNodes[0].innerText = temp2
+
+    // To pause the execution of code for the specified delay
+    await new Promise((resolve) => setTimeout(resolve, delay))
+
+    // Provide skyblue color to the max_idx-th bar
+    bars[max_idx].style.backgroundColor = 'rgb(125, 211, 252)'
+
+    // Provide lightgreen color to the ith bar
+    bars[i].style.backgroundColor = 'rgb(49, 226, 13)'
+  }
+
+  // After sorting is done, set the success message
+  let barval = document.getElementById('selected')
+  barval.innerHTML = '<h3>Sorted successfully!</h3>'
+
+  // To enable the button "Generate New Array" after sorting
+  document.getElementById('btn-generate').disabled = false
+  document.getElementById('btn-generate').style.cursor = 'pointer'
+
+  // To enable the button "Selection Sort" after sorting
+  document.getElementById('btn-sort').disabled = false
+  document.getElementById('btn-sort').style.cursor = 'pointer'
+}
+
 // Call "generatebars" function
 generatebars()
 
@@ -130,7 +203,11 @@ function disable() {
   document.getElementById('btn-generate').disabled = true
   document.getElementById('btn-generate').style.cursor = 'not-allowed'
 
-  // To disable the button "Selection Sort"
-  document.getElementById('btn-sort').disabled = true
-  document.getElementById('btn-sort').style.cursor = 'not-allowed'
+  // To disable the button "Selection Sort Smallest"
+  document.getElementById('btn-sortsmallest').disabled = true
+  document.getElementById('btn-sortsmallest').style.cursor = 'not-allowed'
+
+  // To disable the button "Selection Sort Biggest"
+  document.getElementById('btn-sortbiggest').disabled = true
+  document.getElementById('btn-sortbiggest').style.cursor = 'not-allowed'
 }
