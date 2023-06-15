@@ -29,18 +29,24 @@
         id="btn-generate"
         class="text-2xl font-semibold text-white h-14 w-64 rounded-xl hover:bg-emerald-700 bg-emerald-600"
         onclick="generate()"
-        id="Button1"
       >
         Generate New Data
       </button>
 
       <button
-        id="btn-sort"
-        class="text-2xl font-semibold text-white h-14 w-64 rounded-xl hover:bg-indigo-700 bg-indigo-600"
-        onclick="SelectionSort(),disable()"
-        id="Button2"
+        id="btn-sortsmallest"
+        class="text-2xl font-semibold text-white h-14 w-64 rounded-xl hover:bg-violet-700 bg-violet-600"
+        onclick="SelectionSortSmallest(),disable()"
       >
-        Sorting Data
+        Sorting Data Terkecil
+      </button>
+
+      <button
+        id="btn-sortbiggest"
+        class="text-2xl font-semibold text-white h-14 w-64 rounded-xl hover:bg-indigo-700 bg-indigo-600"
+        onclick="SelectionSortBiggest(),disable()"
+      >
+        Sorting Data Terbesar
       </button>
     </div>
 
